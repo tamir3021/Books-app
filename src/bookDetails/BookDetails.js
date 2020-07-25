@@ -7,11 +7,7 @@ class BookDetails extends React.Component {
     }
 
     componentDidMount() {
-        fetch("https://www.googleapis.com/books/v1/volumes?q=thestand")
-            .then(res => res.json())
-            .then(result => {
-                console.log(result);
-            })
+        
     }
 
     render() {
