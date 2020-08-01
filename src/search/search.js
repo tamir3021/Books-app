@@ -7,7 +7,9 @@ class SearchBar extends React.Component {
         return (
             <Form>
                 <Form.Group controlId="formSearch">
-                    <Form.Control type="text" placeholder="Search book" onChange="this.props.onChange(value)"/>
+                    <Form.Control type="text" placeholder="Search book"
+                     value={this.props.searchQuery}
+                     onChange={(event) => this.props.onChange(event.target.value)}/>
                 </Form.Group>
             </Form>
         )

@@ -4,19 +4,30 @@ import NavigationBar from './navigationBar/NavigationBar';
 import Content from './content/Content';
 import TopNav from './topNav/TopNav';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render } from 'node-sass';
-import { _ } from 'lodash';
+import  _  from 'lodash';
 
 class App extends React.Component {
+  debouncedSearch;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchQuery: "",
+    };
+    this.debouncedSearch = _.debounce((value) => {
+      this.fetchBookDetails(value);
+    }, 1000);
+  }
 
   doDebounceSearch(value) {
-    _.debounce(() => {
-        this.fetchBookDetails(value);
-    }, 300)
+    if(value) {
+      this.setState({searchQuery: value})
+      this.debouncedSearch(value);
+    }
   }
 
   fetchBookDetails(value) {
-    fetch("https://www.googleapis.com/books/v1/volumes?q=thestand")
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}`)
             .then(res => res.json())
             .then(result => {
                 console.log(result);
@@ -30,7 +41,7 @@ class App extends React.Component {
           <main className="App-main">
             <TopNav></TopNav>
             <div className="mainArea">
-              <NavigationBar onChange={(value) => this.doDebounceSearch(value)}/>
+              <NavigationBar searchQuery={this.state.searchQuery} onChange={(value) => this.doDebounceSearch(value)}/>
               <Content />
             </div>
           </main>

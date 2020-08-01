@@ -6,10 +6,10 @@ import SearchBar from '../search/Search';
 
 
 
-function NavigationBar() {
+function NavigationBar(props) {
     return (
         <div>
-            <SearchBar onChange={(value) => this.props.onChange(value)}/>
+            <SearchBar searchQuery={props.searchQuery} onChange={props.onChange}/>
             <Nav defaultActiveKey="/" className="flex-column">
                 <Nav.Link as={Link} to="/">Book Details</Nav.Link>
                 <Nav.Link as={Link} to="/test">Test</Nav.Link>
