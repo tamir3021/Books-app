@@ -13,6 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       searchQuery: "",
+      books: "",
     };
     this.debouncedSearch = _.debounce((value) => {
       this.fetchBookDetails(value);
@@ -27,10 +28,11 @@ class App extends React.Component {
   }
 
   fetchBookDetails(value) {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&maxResults=5`)
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                this.setState({books: result.items});
             })
   }
 
@@ -42,7 +44,7 @@ class App extends React.Component {
             <TopNav></TopNav>
             <div className="mainArea">
               <NavigationBar searchQuery={this.state.searchQuery} onChange={(value) => this.doDebounceSearch(value)}/>
-              <Content />
+              <Content books={this.state.books}/>
             </div>
           </main>
         </div>

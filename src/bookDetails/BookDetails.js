@@ -11,11 +11,21 @@ class BookDetails extends React.Component {
     }
 
     render() {
-        return (
-            <aside className="bookDetails">
-                <p>Book details</p>
-            </aside>
-        )
+        if(this.props.books) {
+            this.props.books.map((book, index) => {
+                return (
+                <li key={index}>test</li>
+                    // <aside className="bookDetails">
+                        
+                    // </aside>
+                )
+            });
+        }
+        else {
+            return (
+                <div></div>
+            )
+        }
     }
 }
 

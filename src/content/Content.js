@@ -3,12 +3,12 @@ import './Content.scss'
 import { Switch, Route } from 'react-router-dom';
 import BookDetails from '../bookDetails/BookDetails'
 import Test from '../Test';
-function Content() {
+function Content(props) {
     return (
         <main className="mainArea">
             <Switch>
                 <Route exact path="/">
-                    <BookDetails />
+                    <BookDetails books={props.books}/>
                 </Route>
                 <Route path="/test">
                     <Test />
