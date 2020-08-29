@@ -5,7 +5,7 @@ import BookDetails from '../bookDetails/BookDetails'
 import Test from '../Test';
 function Content(props) {
     return (
-        <main className="mainArea">
+        <main className="booksArea">
             <Switch>
                 <Route exact path="/">
                     <BookDetails books={props.books}/>

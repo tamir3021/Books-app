@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavigationBar'
+import './NavigationBar.scss';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import SearchBar from '../search/Search';
@@ -8,7 +9,7 @@ import SearchBar from '../search/Search';
 
 function NavigationBar(props) {
     return (
-        <div>
+        <div className="navigationBar">
             <SearchBar searchQuery={props.searchQuery} onChange={props.onChange}/>
             <Nav defaultActiveKey="/" className="flex-column">
                 <Nav.Link as={Link} to="/">Book Details</Nav.Link>
