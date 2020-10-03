@@ -7,6 +7,22 @@
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
+    list-style: none;
+
+    > li {
+        margin: 1rem;
+
+        .card {
+            color: #000;
+        }
+        .card-body {
+            height: 30rem;
+        }
+        .description {
+            height: 90%;
+            overflow: hidden;
+        }
+    }
 }
 
 .card {
