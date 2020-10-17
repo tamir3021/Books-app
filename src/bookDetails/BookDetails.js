@@ -19,7 +19,7 @@ class BookDetails extends React.Component {
                 return (
                 <li key={index}>
                     <Card className="card" style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="holder.js/100px180" />
+                        <Card.Img variant="top" src={book.volumeInfo.imageLinks.smallThumbnail} className="cardImg" />
                         <Card.Body>
                             <Card.Title>{book.volumeInfo.title}</Card.Title>
                             <Card.Text className="description">

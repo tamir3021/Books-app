@@ -20,6 +20,7 @@
         }
         .description {
             height: 90%;
+            font-size: 1rem;
             overflow: hidden;
         }
     }
@@ -27,4 +28,8 @@
 
 .card {
     margin-right: 1rem;
+}
+.cardImg {
+    height: 15rem;
+    width: 100%;
 }
